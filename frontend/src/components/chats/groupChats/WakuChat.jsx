@@ -63,6 +63,7 @@ const WakuChat = () => {
     useEffect(() => {
         setMessages(filterMessages.map((wakuMessage) => {
             if (!wakuMessage.payload) return;
+            console.log(wakuMessage.payload);
             return ChatMessage.decode(wakuMessage.payload);
         }));
     }, [filterMessages]);

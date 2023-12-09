@@ -1,4 +1,4 @@
-import WakuChat from '@/components/chats/groupChats/wakuChat'
+import WakuChat from '@/components/chats/groupChats/WakuChat'
 import React from 'react'
 
 const communityChats = () => {
