@@ -5,13 +5,14 @@ import Dakter from '../../artifacts/contracts/Dakter.sol/Dakter.json'
 import accountContext from '@/context/account/accountContext';
 import providerContext from '@/context/provider/providerContext';
 import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 const DoctorProfile = () => {
     const [doctorDetails, setdoctorDetails] = useState({
         doctorId: '',
         name: '',
         age: '',
-        gender: 'male',
+        gender: '',
         address: '',
         specialization: '',
         consultanceFee: '',
@@ -20,6 +21,7 @@ const DoctorProfile = () => {
     const { provider, setProvider } = useContext(providerContext)
     const { account, setAccount } = useContext(accountContext)
     const [contract, setContract] = useState('')
+    const router = useRouter()
 
     const handleChange = (e) => {
         setdoctorDetails({ ...doctorDetails, [e.target.name]: e.target.value })
@@ -50,6 +52,7 @@ const DoctorProfile = () => {
             if (receipt && receipt.status === 1) {
                 toast.success('Data uploaded successfully!')
                 console.log('Data uploaded successfully!');
+                router.push('/dashboard')
                 // Show success toaster
             } else {
                 console.error('Transaction failed:', receipt);
@@ -116,7 +119,7 @@ const DoctorProfile = () => {
                         id='gender'
                         name='gender'
                         className="select w-1/2 rounded-lg px-4 py-3 bg-[rgba(255,255,255,0.2)] outline-none">
-                        <option disabled selected>Gender</option>
+                        <option value='' disabled selected>Gender</option>
                         <option value='male' className='text-black'>Male</option>
                         <option value='female' className='text-black'>Female</option>
                         <option value='cannotsay' className='text-black'>Cannot Say</option>

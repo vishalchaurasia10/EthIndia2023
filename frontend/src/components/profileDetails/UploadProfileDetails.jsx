@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import UserProfile from './UserProfile'
 import DoctorProfile from './DoctorProfile'
 import { motion } from 'framer-motion'
+import typeContext from '@/context/type/typeContext'
 
 const UploadProfileDetails = () => {
-    const [userType, setUserType] = useState('user')
+
+    const { userType, setUserType } = useContext(typeContext)
 
     return (
         <div className="wrapper flex items-center justify-center w-full pt-28 pb-20 md:pt-40 lg:pt-32 px-3">

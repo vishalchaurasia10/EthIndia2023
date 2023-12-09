@@ -5,6 +5,7 @@ import Dakter from '../../artifacts/contracts/Dakter.sol/Dakter.json'
 import accountContext from '@/context/account/accountContext';
 import providerContext from '@/context/provider/providerContext';
 import toast, { Toaster } from 'react-hot-toast';
+import { useRouter } from 'next/router';
 
 const UserProfile = () => {
     const [patientDetails, setPatientDetails] = useState({
@@ -18,6 +19,7 @@ const UserProfile = () => {
     const { provider, setProvider } = useContext(providerContext)
     const { account, setAccount } = useContext(accountContext)
     const [contract, setContract] = useState('')
+    const router = useRouter()
 
     const handleChange = (e) => {
         setPatientDetails({ ...patientDetails, [e.target.name]: e.target.value })
@@ -46,6 +48,7 @@ const UserProfile = () => {
             if (receipt && receipt.status === 1) {
                 toast.success('Data uploaded successfully!')
                 console.log('Data uploaded successfully!');
+                router.push('/dashboard')
                 // Show success toaster
             } else {
                 console.error('Transaction failed:', receipt);
