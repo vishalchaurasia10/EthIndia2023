@@ -79,17 +79,16 @@ const DoctorProfile = () => {
 
                 setContract(contract);
                 setProvider(provider);
-                console.log(contract);
-                console.log(provider);
-                console.log(address);
 
                 // After connecting the wallet, you can upload data to the blockchain
                 await uploadDataToBlockchain(signer);
             } else {
                 console.log("Metamask not found");
+                toast.error("Metamask not found")
             }
         } catch (err) {
             console.log(err);
+            toast.error(err)
         }
     };
 
