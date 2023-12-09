@@ -10,7 +10,7 @@ const UploadProfileDetails = () => {
         <div className="wrapper flex items-center justify-center w-full pt-28 pb-20 md:pt-40 lg:pt-32 px-3">
             <div className="upload font-jost text-white border border-white lg:w-1/2 rounded-2xl p-6 md:p-8">
                 <div className="heading flex items-center">
-                    <h1 className='text-7xl  md:text-8xl font-bold pb-4 font-jost bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-400 capitalize'>{userType} Profile</h1>
+                    <h1 className='text-7xl  md:text-8xl font-bold pb-4 font-jost bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 capitalize'>{userType} Profile</h1>
                 </div>
                 <div className="buttons mb-6">
                     <ul className='flex items-center space-x-4'>

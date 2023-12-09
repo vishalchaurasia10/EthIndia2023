@@ -1,0 +1,58 @@
+type AppointmentCreated @entity(immutable: true) {
+  id: Bytes!
+  patientId: BigInt! # uint256
+  doctorId: BigInt! # uint256
+  patientAddress: Bytes! # address
+  doctorAddress: Bytes! # address
+  symptoms: String! # string
+  pastMedHistory: String! # string
+  appointmentDate: String! # string
+  appointmentTime: String! # string
+  urgencyLevel: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DoctorCreated @entity(immutable: true) {
+  id: Bytes!
+  doctorId: BigInt! # uint256
+  doctorWalletAddress: Bytes! # address
+  name: String! # string
+  age: String! # string
+  gender: String! # string
+  doctorAddress: String! # string
+  specialization: String! # string
+  consultanceFee: String! # string
+  duration: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PatientCreated @entity(immutable: true) {
+  id: Bytes!
+  patientId: BigInt! # uint256
+  patientWalletAddress: Bytes! # address
+  name: String! # string
+  age: String! # string
+  dateOfBirth: String! # string
+  gender: String! # string
+  patientAddr: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PrescriptionAdded @entity(immutable: true) {
+  id: Bytes!
+  patientId: BigInt! # uint256
+  doctorId: BigInt! # uint256
+  doctorAddress: Bytes! # address
+  patientAddress: Bytes! # address
+  prescriptions: String! # string
+  prescriptionDate: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

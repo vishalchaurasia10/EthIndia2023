@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@pushprotocol/restapi": "^1.4.45",
+    "@pushprotocol/socket": "^0.5.3",
+    "@pushprotocol/uiweb": "^1.1.22",
     "@safe-global/auth-kit": "^2.0.0",
     "@web3auth/openlogin-adapter": "^5.2.0",
     "@web3auth/safeauth-embed": "^0.0.0",
+    "ethers": "5.7",
     "framer-motion": "^10.16.16",
-    "next": "14.0.4",
+    "next": "13.4.12",
     "react": "^18",
     "react-dom": "^18"
   },
