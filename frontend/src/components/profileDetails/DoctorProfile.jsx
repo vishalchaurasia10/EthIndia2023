@@ -29,7 +29,7 @@ const DoctorProfile = () => {
 
     const uploadDataToBlockchain = async (signer) => {
         try {
-            const contractAddress = '0xd25F8eBf65a3612D444dE421A3435281a5a9fD15';
+            const contractAddress = process.env.NEXT_PUBLIC_CELO_CONTRACT_ADDRESS;
             // Create a contract instance
             const contract = new ethers.Contract(contractAddress, Dakter.abi, signer);
 
@@ -77,7 +77,7 @@ const DoctorProfile = () => {
                 const address = await signer.getAddress();
                 setAccount(address);
 
-                let contractAddress = "0x7209a5CdFd5C2CbfB0D9C75b1B681CF44bf54088";
+                let contractAddress = process.env.NEXT_PUBLIC_CELO_CONTRACT_ADDRESS;
                 const contract = new ethers.Contract(contractAddress, Dakter.abi, signer);
 
                 setContract(contract);
