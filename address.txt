@@ -1,0 +1,7 @@
+alfajores (CELO):
+daktor : 0x601e67b75437fd7585cba4f4f2b665ebe08b34ed
+counter : 0xe0279ecba18bcad93247c0c3cfbcca4ebe4354b3
+
+sepolia:
+daktor : 0xd25F8eBf65a3612D444dE421A3435281a5a9fD15
+counter : 0x5b9DF411b474FF197e83F7959C5bC6a29bC951C1
