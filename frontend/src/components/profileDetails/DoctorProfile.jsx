@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ethers } from 'ethers';
 import Dakter from '../../artifacts/contracts/Dakter.sol/Dakter.json'
+import accountContext from '@/context/account/accountContext';
+import providerContext from '@/context/provider/providerContext';
+import toast, { Toaster } from 'react-hot-toast';
 
 const DoctorProfile = () => {
     const [doctorDetails, setdoctorDetails] = useState({
@@ -14,54 +17,16 @@ const DoctorProfile = () => {
         consultanceFee: '',
         duration: ''
     })
-    const [account, setAccount] = useState('')
+    const { provider, setProvider } = useContext(providerContext)
+    const { account, setAccount } = useContext(accountContext)
     const [contract, setContract] = useState('')
-    const [provider, setProvider] = useState('')
 
     const handleChange = (e) => {
         setdoctorDetails({ ...doctorDetails, [e.target.name]: e.target.value })
     }
 
-    // const uploadData = async () => {
-    //     console.log(doctorDetails)
-    //     try {
-    //         // Replace 'YourContractAbiHere' and 'YourContractAddressHere' with actual values
-    //         const contractAbi = Dakter.abi
-    //         const contractAddress = '0xd25F8eBf65a3612D444dE421A3435281a5a9fD15';
-
-    //         const provider = new ethers.providers.Web3Provider(window.ethereum);
-    //         const signer = provider.getSigner();
-    //         const contract = new ethers.Contract(contractAddress, contractAbi, signer);
-
-    //         // Call the createDoctor function on the smart contract
-    //         const transaction = await contract.createDoctor(
-    //             doctorDetails.name,
-    //             doctorDetails.age,
-    //             doctorDetails.gender,
-    //             doctorDetails.doctorAddress,
-    //             doctorDetails.specialization,
-    //             doctorDetails.consultanceFee,
-    //             doctorDetails.duration
-    //         );
-
-    //         // Wait for the transaction to be mined
-    //         await transaction.wait();
-
-    //         console.log('Doctor details uploaded successfully!');
-    //     } catch (error) {
-    //         console.error('Error uploading doctor details:', error);
-    //     }
-    // }
-
     const uploadDataToBlockchain = async (signer) => {
-        console.log(doctorDetails)
         try {
-            // Check if the user is connected
-            // if (!provider) {
-            //     console.log("Wallet not connected.");
-            //     return;
-            // }
-
             const contractAddress = '0xd25F8eBf65a3612D444dE421A3435281a5a9fD15';
             // Create a contract instance
             const contract = new ethers.Contract(contractAddress, Dakter.abi, signer);
@@ -79,13 +44,25 @@ const DoctorProfile = () => {
             );
 
             // Wait for the transaction to be mined
-            await transaction.wait();
+            const receipt = await transaction.wait();
 
-            console.log('Data uploaded successfully!');
+            // Check if the transaction is successful
+            if (receipt && receipt.status === 1) {
+                toast.success('Data uploaded successfully!')
+                console.log('Data uploaded successfully!');
+                // Show success toaster
+            } else {
+                console.error('Transaction failed:', receipt);
+                toast.error('Transaction failed:', receipt)
+                // Show error toaster
+            }
         } catch (error) {
             console.error('Error uploading data:', error);
+            toast.error('Error uploading data:', error)
+            // Show error toaster
         }
     };
+
 
     const loadProvider = async () => {
         try {
@@ -118,6 +95,7 @@ const DoctorProfile = () => {
 
     return (
         <>
+            <Toaster />
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
