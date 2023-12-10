@@ -1,9 +1,10 @@
+import ScheduleAppointment from '@/components/appointments/ScheduleAppointment'
 import React from 'react'
 
 const schedule = () => {
     return (
         <div>
-            schedule
+            <ScheduleAppointment />
         </div>
     )
 }
