@@ -31,7 +31,6 @@ const ScheduleAppointment = () => {
     }
 
     const uploadDataToBlockchain = async (signer) => {
-        console.log(appointmentDetails)
         try {
             const contractAddress = process.env.NEXT_PUBLIC_CELO_CONTRACT_ADDRESS;
             // Create a contract instance

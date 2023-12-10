@@ -3,7 +3,7 @@ import React from 'react'
 
 const scheduled = () => {
     return (
-        <div>
+        <div className='min-h-screen'>
             <ScheduledAppointments />
         </div>
     )
