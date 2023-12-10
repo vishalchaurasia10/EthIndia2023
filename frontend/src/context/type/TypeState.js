@@ -3,7 +3,7 @@ import TypeContext from './typeContext';
 
 const TypeState = (props) => {
 
-    const [userType, setUserType] = useState('doctor')
+    const [userType, setUserType] = useState('user')
 
     return (
         <TypeContext.Provider value={{ userType, setUserType }}>

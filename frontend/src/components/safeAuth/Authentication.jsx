@@ -10,7 +10,7 @@ const Authentication = () => {
         console.log("Anon Aadhaar status: ", anonAadhaar.status);
         console.log(anonAadhaar);
         if (anonAadhaar.status === "logged-in") {
-            router.push('/connecttowallet')
+            router.push('/profile')
         }
     }, [anonAadhaar]);
 

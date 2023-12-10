@@ -5,6 +5,8 @@ import accountContext from '@/context/account/accountContext';
 import providerContext from '@/context/provider/providerContext';
 import { IoMdSend } from "react-icons/io";
 import toast, { Toaster } from 'react-hot-toast';
+import { FaVideo } from "react-icons/fa6";
+import Link from 'next/link'
 
 const PushChat = () => {
     const [userAlice, setUserAlice] = useState(null);
@@ -107,6 +109,12 @@ const PushChat = () => {
                         value={recipientAddress}
                     />
                     <button onClick={() => { toast.success('Recipient Address set'), fetchChats() }} className='btn'>Set Recipient Address </button>
+                    <Link className='w-full' href='http://localhost:3001/'>
+                        <button className='btn w-full flex items-center justify-center'>
+                            <FaVideo className='w-6 h-6' />
+                            <span>Video Chat</span>
+                        </button>
+                    </Link>
                 </div>
                 <div className="chats w-3/4 h-[95vh] flex flex-col border m-4 mr-8 p-4 border-white">
                     <h1 className='text-5xl font-jost font-bold text-white ' >Private Chat</h1>
