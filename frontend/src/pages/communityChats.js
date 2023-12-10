@@ -1,11 +1,15 @@
 import WakuChat from '@/components/chats/groupChats/WakuChat'
+import Transition from '@/components/layout/Transition'
 import React from 'react'
 
 const communityChats = () => {
     return (
-        <div>
-            <WakuChat />
-        </div>
+        <>
+            <Transition />
+            <div>
+                <WakuChat />
+            </div>
+        </>
     )
 }
 

@@ -1,11 +1,15 @@
 import ScheduledAppointments from '@/components/appointments/ScheduledAppointments'
+import Transition from '@/components/layout/Transition'
 import React from 'react'
 
 const scheduled = () => {
     return (
-        <div className='min-h-screen'>
-            <ScheduledAppointments />
-        </div>
+        <>
+            <Transition />
+            <div className='min-h-screen'>
+                <ScheduledAppointments />
+            </div>
+        </>
     )
 }
 

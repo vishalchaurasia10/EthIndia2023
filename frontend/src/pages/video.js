@@ -1,10 +1,14 @@
+import Transition from '@/components/layout/Transition'
 import React from 'react'
 
 const video = () => {
     return (
-        <div>
-            video
-        </div>
+        <>
+            <Transition />
+            <div>
+                video
+            </div>
+        </>
     )
 }
 

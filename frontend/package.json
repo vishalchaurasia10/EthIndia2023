@@ -17,6 +17,7 @@
     "@waku/sdk": "^0.0.20",
     "@web3auth/openlogin-adapter": "^5.2.0",
     "@web3auth/safeauth-embed": "^0.0.0",
+    "anon-aadhaar-react": "^0.1.15",
     "ethers": "5.7",
     "framer-motion": "^10.16.16",
     "next": "13.4.12",

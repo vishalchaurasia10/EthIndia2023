@@ -1,11 +1,15 @@
 import Dashboard from '@/components/dashboard/Dashboard'
+import Transition from '@/components/layout/Transition'
 import React from 'react'
 
 const dashboard = () => {
     return (
-        <div>
-            <Dashboard />
-        </div>
+        <>
+            <Transition />
+            <div>
+                <Dashboard />
+            </div>
+        </>
     )
 }
 
